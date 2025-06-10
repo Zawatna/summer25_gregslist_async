@@ -23,6 +23,85 @@
   </header>
 
   <main>
+    <!-- SECTION Form to create houses -->
+    <section class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Houses</h1>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form onsubmit="app.HousesController.submitHouse()">
+            <div class="mb-3">
+              <label for="house-bedrooms" class="form-label">Bedrooms</label>
+              <input type="number" class="form-control" id="house-bedrooms" maxlength="1000"
+                placeholder="Number of Bedrooms..." name="bedrooms">
+            </div>
+            <div class="mb-3">
+              <label for="house-bathrooms" class="form-label">Bathrooms</label>
+              <input type="number" class="form-control" id="house-bathrooms" maxlength="1000"
+                placeholder="Number of Bathrooms..." name="bathrooms">
+            </div>
+            <div class="mb-3">
+              <label for="house-levels" class="form-label">Levels</label>
+              <input type="number" class="form-control" id="house-levels" maxlength="1000"
+                placeholder="Number of levels..." name="levels">
+            </div>
+            <div class="mb-3">
+              <label for="house-img-url" class="form-label">House Image Url</label>
+              <input type="url" class="form-control" id="house-img-url" placeholder="House ImgUrl..." required
+                maxlength="500" name="imgUrl">
+            </div>
+            <div class="mb-3">
+              <label for="house-year" class="form-label">Year Built</label>
+              <input type="number" class="form-control" id="house-year" maxlength="2030" placeholder="Year Built..."
+                name="year">
+            </div>
+            <div class="mb-3">
+              <label for="house-price" class="form-label">Price</label>
+              <input type="number" class="form-control" id="house-price" maxlength="1000000000" placeholder="Price..."
+                name="price">
+            </div>
+            <div class="mb-3">
+              <label for="house-description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="house-description" maxlength="5000"
+                placeholder="Description..." name="description">
+            </div>
+            <div class="text-end">
+              <button class="btn btn-outline-success" type="submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- SECTION house listings template -->
+      <div id="house-listing" class="row">
+        <!-- <div class="col-md-6">
+          <div class="position-relative shadow house-car" style="border-color: black;">
+            <img src="" alt="" class="car-img">
+            <span class="d-inline-block px-3 py-1 bg-dark text-success fs-2">$10000000</span>
+            <div class="p-3">
+              <h3>3bd 2br Home</h3>
+              <p class="fs-4 fw-bold"></p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus blanditiis provident debitis porro
+                soluta ad quasi repudiandae. Id ratione, unde, voluptate maxime recusandae eligendi nostrum molestias,
+                nobis quasi quos sit.</p>
+              <div class="d-flex justify-content-between align-items-end">
+                <div>
+                  <img src="${this.imgUrl}" alt="" class="src">
+                  <p class="mb-0">Zawatna</p>
+                </div>
+                <small>Listed on 06/10/20</small>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
     <!-- TODO add houses stuff here! -->
 
     <section class="container">
