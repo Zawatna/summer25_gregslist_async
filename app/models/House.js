@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class House {
     constructor(data) {
         this.id = data.id
@@ -9,7 +11,10 @@ export class House {
         this.price = data.price
         this.description = data.description
         this.creatorId = data.creatorId
-        this.creator = data.creator
+        this.createdAt = new Date(data.createdAt)
+        this.updatedAt = new Date(data.updatedAt)
+        this.creatorName = data.creator.name
+        this.creatorPicture = data.creator.picture || 'https://images.unsplash.com/photo-1698133466680-1ef734d5d12d?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
     }
 
     get listingHTMLTemplate() {
@@ -21,20 +26,33 @@ export class House {
     <div class="p-3">
     <h3>${this.bedrooms} Bedroom ${this.bathrooms} Bathroom ${this.levels} Level Home</h3>
     <p class="fs-4 fw-bold"></p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus blanditiis provident debitis porro
-    soluta ad quasi repudiandae. Id ratione, unde, voluptate maxime recusandae eligendi nostrum molestias,
-    nobis quasi quos sit.</p>
+    <p>${this.description}</p>
     <div class="d-flex justify-content-between align-items-end">
     <div>
-    <img src="" alt="" class="src">
-    <p class="mb-0">Zawatna</p>
+    <img src="${this.creatorPicture}" alt="${this.creatorName}" class="creator-img">
+    <p class="mb-0">${this.creatorName}</p>
+    </div>${this.deleteButton}
+    <small>Listed on ${this.createdAt.toLocaleDateString()}</small>
     </div>
-    <small>Listed on 06/10/20</small>
     </div>
     </div>
     </div>
     </div>
           `
+    }
+
+    get deleteButton() {
+        const identity = AppState.identity
+
+        if (identity == null) {
+            return ''
+        }
+        if (identity.id != this.creatorId) {
+            return ''
+        }
+        return `
+        button onclick="app.housesController.confirmHouseDelete('${this.id}')" class="btn btn-outline-danger" type="button">Delete House</button>
+        `
     }
 }
 
