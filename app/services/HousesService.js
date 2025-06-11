@@ -17,13 +17,13 @@ class HousesService {
         AppState.houses.push(newHouse)
     }
 
-    // async deleteHouse(houseId) {
-    //     const response = await api.delete(`api/houses/${houseId}`)
-    //     console.log('deleted house', response.data);
-    //     const houses = AppState.houses
-    //     const houseIndex = houses.findIndex(house => house.id == houseId)
-    //     houses.splice(houseIndex, 1)
-    // }
+    async deleteHouse(houseId) {
+        const response = await api.delete(`api/houses/${houseId}`)
+        console.log('deleted house', response.data);
+        const houses = AppState.houses
+        const houseIndex = houses.findIndex(house => house.id == houseId)
+        houses.splice(houseIndex, 1)
+    }
 }
 
 export const housesService = new HousesService()

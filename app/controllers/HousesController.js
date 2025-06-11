@@ -43,18 +43,18 @@ export class HousesController {
         }
     }
 
-    // async confirmHouseDelete(houseId) {
-    //     const confirmed = await Pop.confirm('Are you sure you want to delete this house?', 'There is no going back', 'Yes, I am sure', 'No, I reconsidered')
-    //     if (!confirmed) {
-    //         return
-    //     }
-    //     try {
-    //         console.log('deleting house!', houseId);
-    //         await housesService.deleteHouse(houseId)
-    //     } catch (error) {
-    //         Pop.error(error, 'Oh no! could not delete that house')
-    //         console.log('deleteHouse failed', error);
-    //     }
-    // }
+    async confirmHouseDelete(houseId) {
+        const confirmed = await Pop.confirm('Are you sure you want to delete this house?', 'There is no going back', 'Yes, I am sure', 'No, I reconsidered')
+        if (!confirmed) {
+            return
+        }
+        try {
+            console.log('deleting house!', houseId);
+            await housesService.deleteHouse(houseId)
+        } catch (error) {
+            Pop.error(error, 'Oh no! could not delete that house')
+            console.log('deleteHouse failed', error);
+        }
+    }
 
 }
