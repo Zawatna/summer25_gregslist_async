@@ -54,7 +54,7 @@ export class House {
       return ''
     }
     return `
-        button onclick="app.housesController.confirmHouseDelete('${this.id}')" class="btn btn-outline-danger" type="button">Delete House</button>
+        <button onclick="app.housesController.confirmHouseDelete('${this.id}')" class="btn btn-outline-danger" type="button">Delete House</button>
         `
   }
 }
